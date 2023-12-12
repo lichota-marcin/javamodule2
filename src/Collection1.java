@@ -19,11 +19,11 @@ public class Collection1 {
         return singleLine.toLowerCase();
     }
     static public String[] arrayOfLyrics(String stringToArray){
-        return stringToArray.split(" ");
+        return stringToArray.split("\\s+");
     }
     static public int howManyTimesWordAppears(String[] lyricsArray, String word) {
         int occurences = 0;
-        for (int i =0; i<lyricsArray.length-1;i++) {
+        for (int i =0; i<lyricsArray.length;i++) {
             if (Objects.equals(lyricsArray[i], word)){
                 occurences++;
             }

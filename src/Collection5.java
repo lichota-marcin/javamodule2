@@ -6,38 +6,52 @@ public class Collection5 {
     static class User {
         private String name;
         private int age;
+
         public User(String name, int age) {
             this.name = name;
             this.age = age;
         }
+
         @Override
         public int hashCode() {
             char[] array = name.toCharArray();
             int sum = 0;
-            for (int i =0; i< array.length-1;i++){
+            for (int i = 0; i < array.length; i++) {
                 int n = array[i];
                 sum += n;
             }
-            return sum+age;
+            return sum + age;
         }
 
         @Override
         public boolean equals(Object obj) {
-            return hashCode() == this.hashCode();
-        }
-        public String getName() {
-            return name;
-        }
-        public void setName(String name) {
-            this.name = name;
-        }
-        public int getAge() {
-            return age;
-        }
-        public void setAge(int age) {
-            this.age = age;
-        }
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof User)) {
+                return false;
+            }
+            User cur = (User) obj;
+            return age == cur.age && name.equals(cur.name);
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+
 
     public static void main(String[] args) {
         Set<User> users = new HashSet<>();
