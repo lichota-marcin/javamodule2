@@ -15,12 +15,9 @@ public class Collection3 {
         for(String word : lyricsInAList){
             System.out.println(word);
         }
-
-
     }
 
    static List<String> stringToList (String text){
         return  new ArrayList<String>(Arrays.asList(text.split(" ")));
-
    }
 }
